@@ -271,17 +271,45 @@ class ExamEngine {
         let correct = 0;
         let incorrect = 0;
         let attempted = 0;
+        const questionsHistory = [];
+        const topicStats = {};
 
         this.currentQuestions.forEach((q, i) => {
-            const ans = this.userAnswers[i];
-            if (ans?.answer !== undefined) {
+            const userAns = this.userAnswers[i];
+            const topic = q.subject || 'General';
+            
+            if (!topicStats[topic]) {
+                topicStats[topic] = { total: 0, attempted: 0, correct: 0 };
+            }
+            topicStats[topic].total++;
+
+            let status = 'skipped';
+            let selected = null;
+
+            if (userAns?.answer !== undefined) {
                 attempted++;
-                if (ans.answer === q.answer) {
+                topicStats[topic].attempted++;
+                selected = userAns.answer;
+                
+                if (userAns.answer === q.answer) {
                     correct++;
+                    topicStats[topic].correct++;
+                    status = 'correct';
                 } else {
                     incorrect++;
+                    status = 'wrong';
                 }
             }
+
+            // Map question data to what analysis.js expects
+            questionsHistory.push({
+                q: q.question,
+                options: q.options,
+                ans: q.answer,
+                selected: selected,
+                topic: topic,
+                status: status
+            });
         });
 
         const config = this.config[this.exam] || { marks: 1, negative: 0.25 };
@@ -295,10 +323,13 @@ class ExamEngine {
             attempted,
             correct,
             wrong: incorrect,
-            score: score.toFixed(2),
-            accuracy: accuracy.toFixed(2),
+            unattempted: this.currentQuestions.length - attempted,
+            score: parseFloat(score.toFixed(2)),
+            accuracy: parseFloat(accuracy.toFixed(2)),
             timeTakenSec: (this.mode === 'practice' ? 20 : 60) * 60 - this.timeLeft,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            questions: questionsHistory,
+            topicStats: topicStats
         };
     }
 
