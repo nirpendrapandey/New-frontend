@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SarkariNext Blog | Premium Career Insights</title>
+  <meta name="description" content="Stay ahead with high-fidelity updates on government exams, syllabi, and trend analysis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./blog.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="navShell">
+      <a class="logo" href="../index.html">Sarkari<span>Next</span></a>
+      <div style="margin-left: auto; color: #fff; font-weight: 600; font-size: 0.85rem; opacity: 0.8; letter-spacing: 1px;">PREMIUM ACCESS</div>
+    </div>
+    <!-- LIVE TICKER SYNC -->
+    <div class="ticker-row">
+      <div class="ticker-track">
+        <span>🔴 LIVE: UP Police 2026 Notification Out &nbsp;&nbsp;•&nbsp;&nbsp; SSC GD Exam Dates Announced &nbsp;&nbsp;•&nbsp;&nbsp; Railway NTPC CBT-1 Results &nbsp;&nbsp;•&nbsp;&nbsp; IBPS PO Mains Admit Card &nbsp;&nbsp;•&nbsp;&nbsp; Super TET 17000+ Vacancies</span>
+        <span>🔴 LIVE: UP Police 2026 Notification Out &nbsp;&nbsp;•&nbsp;&nbsp; SSC GD Exam Dates Announced &nbsp;&nbsp;•&nbsp;&nbsp; Railway NTPC CBT-1 Results &nbsp;&nbsp;•&nbsp;&nbsp; IBPS PO Mains Admit Card &nbsp;&nbsp;•&nbsp;&nbsp; Super TET 17000+ Vacancies</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mainShell">
+    <section class="hero reveal">
+      <div class="heroCopy">
+        <span class="eyebrow">The Professional Edge</span>
+        <h1>Your Future, Decoded.</h1>
+        <p>High-fidelity updates on government exams, strategic syllabi, and real-time career tracking for the modern aspirant.</p>
+
+        <div class="filters">
+          <input id="searchInput" type="text" placeholder="Search insights, news, or exams..." />
+          <select id="categorySelect">
+            <option value="all">Global Feed</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="contentLayoutFull">
+      <div class="sectionHead reveal">
+        <div>
+          <span class="sectionKicker">LATEST INSIGHTS</span>
+          <h2>Explore major updates</h2>
+        </div>
+      </div>
+
+      <div id="blogGrid" class="grid">
+        <!-- Dynamic Cards -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
+      <a class="logo" href="#" style="font-size: 1.2rem; margin-bottom: 20px; display: inline-block;">Sarkari<span>Next</span></a>
+      <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+        <a href="../index.html" class="tag">Home</a>
+        <a href="./index.html" class="tag">Journal</a>
+        <a href="#" class="tag">Trending</a>
+      </div>
+      <p style="font-size: 0.85rem; opacity: 0.6;">&copy; <span id="year"></span> SarkariNext. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+  </script>
+  <script src="./blog.js" defer></script>
+
+</body>
+</html>
+
