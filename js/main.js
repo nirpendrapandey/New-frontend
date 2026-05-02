@@ -570,3 +570,87 @@ document.getElementById("footerYear").innerText = new Date().getFullYear();
 
 
 
+
+// =========================================================
+// MOBILE UI GLOBAL LOGIC
+// =========================================================
+
+// 1. Sidebar Toggle Logic
+function toggleSidebar() {
+  const sidebar = document.getElementById('mobileSidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  if(sidebar && overlay) {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+    if(sidebar.classList.contains('open')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }
+}
+
+// Expose globally
+window.toggleSidebar = toggleSidebar;
+
+// 2. Swipe Down to Close (Bottom Sheets)
+function initBottomSheetSwipe() {
+  const modals = document.querySelectorAll('.roadmap-modal-content, .auth-card');
+  
+  modals.forEach(modal => {
+    let startY = 0;
+    let currentY = 0;
+    let isDragging = false;
+    
+    modal.addEventListener('touchstart', (e) => {
+      // Only initiate drag if user touches the top area (header) of the modal
+      // This prevents interfering with scrolling the content inside
+      const touchY = e.touches[0].clientY;
+      const modalTop = modal.getBoundingClientRect().top;
+      
+      // If touch is within top 60px of the modal
+      if (touchY - modalTop < 60) {
+        startY = touchY;
+        isDragging = true;
+        modal.style.transition = 'none'; // remove animation for 1:1 drag
+      }
+    }, { passive: true });
+    
+    modal.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      currentY = e.touches[0].clientY;
+      const diffY = currentY - startY;
+      
+      if (diffY > 0) { // Only allow dragging downwards
+        modal.style.transform = 	ranslateY( + diffY + px);
+      }
+    }, { passive: false });
+    
+    modal.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      modal.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      
+      const diffY = currentY - startY;
+      if (diffY > 150) {
+        // Dismiss
+        if (modal.classList.contains('roadmap-modal-content')) {
+          if(typeof closeNodeModal === 'function') closeNodeModal();
+        } else if (modal.classList.contains('auth-card')) {
+          if(typeof closeAuthModal === 'function') closeAuthModal();
+        }
+      } else {
+        // Snap back
+        modal.style.transform = 'translateY(0)';
+      }
+      
+      startY = 0;
+      currentY = 0;
+    });
+  });
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(initBottomSheetSwipe, 1000); // Give DOM time to render
+});

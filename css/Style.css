@@ -29,6 +29,27 @@ html,body{
   scroll-behavior: smooth;
 }
 
+* {
+  word-break: break-word; /* Prevent long text from blowing out containers on mobile */
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- STRUCTURAL SYSTEM (8px GRID) ---------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
 /* ---------- TOP BAR ---------- */
 .topbar{
   position:fixed;
@@ -184,9 +205,9 @@ p{line-height:1.7}
 
 .explore-box{
   background:white;
-  border-radius:14px;
-  box-shadow:0 6px 18px #0002;
-  padding:10px;
+  border-radius:16px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.08);
+  padding:16px;
 }
 
 .explore-box summary{
@@ -195,7 +216,7 @@ p{line-height:1.7}
   font-size:16px;
 }
 
-.explore-content ul{margin-top:10px;padding-left:18px}
+.explore-content ul{margin-top:16px;padding-left:16px}
 
 /* ---------- ROADMAP ---------- */
 .roadmap-grid{
@@ -208,7 +229,7 @@ p{line-height:1.7}
 .roadmap-grid div{
   background:white;
   padding:16px;
-  border-radius:14px;
+  border-radius:16px;
   text-align:center;
   font-weight:800;
   cursor:pointer;
@@ -250,8 +271,8 @@ p{line-height:1.7}
 
 .finder-form select,
 .finder-form input{
-  padding:10px;
-  border-radius:8px;
+  padding:16px;
+  border-radius:16px;
   border:none;
   font-weight:600;
 }
@@ -275,8 +296,8 @@ p{line-height:1.7}
 /* ---------- MOCK TEST ---------- */
 .q-box{
   background:white;
-  border-radius:12px;
-  padding:14px;
+  border-radius:16px;
+  padding:16px;
   margin:10px 0;
   box-shadow:0 4px 12px #0002;
 }
@@ -299,14 +320,14 @@ p{line-height:1.7}
 .doc-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:14px;
+  gap:16px;
   margin-top:16px;
 }
 
 .doc-grid div{
   background:#f8fafc;
-  padding:14px;
-  border-radius:12px;
+  padding:16px;
+  border-radius:16px;
   box-shadow:0 4px 12px #0001;
 }
 
@@ -314,13 +335,13 @@ p{line-height:1.7}
 .portal-cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:14px;
-  margin:20px 0;
+  gap:16px;
+  margin:24px 0;
 }
 
 .portal-cards div{
   background:white;
-  border-radius:14px;
+  border-radius:16px;
   padding:16px;
   box-shadow:0 6px 18px #0002;
   cursor:pointer;
@@ -3984,3 +4005,451 @@ footer{ position:fixed; bottom:0;
 
 
 
+
+/* =========================================================
+   GLOBAL MOBILE OPTIMIZATION (MAX-WIDTH: 768px)
+========================================================= */
+
+/* Desktop defaults for new elements (hide them on desktop) */
+.hamburger-menu { display: none; }
+.mobile-sidebar { display: none; }
+.sidebar-overlay { display: none; }
+.mobile-sticky-cta { display: none; }
+
+@media screen and (max-width: 768px) {
+  /* 1. LAYOUT & GRIDS -> VERTICAL STACKS */
+  .explore-grid, .portal-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  
+  .finder-form {
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+
+  /* 2. TOPBAR & HAMBURGER MENU */
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+  }
+  .hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+  }
+  
+  .live-bar {
+    display: none !important; /* Hide ticker to save vertical space on mobile */
+  }
+
+  .topbar {
+    padding: 10px 15px;
+    justify-content: space-between;
+  }
+  #authButtonsTopbar {
+    display: none; /* Hide auth buttons on topbar, they are in sidebar or accessible elsewhere */
+  }
+
+  /* 3. SLIDE-IN SIDEBAR */
+  .mobile-sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 10000;
+    transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 5px 0 30px rgba(0,0,0,0.5);
+    padding: 20px;
+  }
+  .mobile-sidebar.open {
+    left: 0;
+  }
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .sidebar-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .close-sidebar {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-links li {
+    margin-bottom: 25px;
+  }
+  .sidebar-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    transition: color 0.2s;
+  }
+  .sidebar-links a:active {
+    color: #00e5ff;
+  }
+
+  /* 4. PERFORMANCE & TOUCH UX */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .explore-box, .portal-card, .btn, button, .video-card {
+    will-change: transform;
+    transition: transform 0.2s ease !important;
+  }
+  
+  /* Disable heavy hover scaling and shadow on mobile */
+  .explore-box:hover, .portal-card:hover, .video-card:hover {
+    transform: none !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2) !important;
+  }
+  
+  /* Add native tap feedback */
+  .explore-box:active, .portal-card:active, button:active, .video-card:active, .roadmap-grid div:active {
+    transform: scale(0.97) !important;
+  }
+
+  /* 5. BOTTOM SHEET FOR AUTH MODAL */
+  .auth-card {
+    position: absolute !important;
+    bottom: 0 !important;
+    top: auto !important;
+    left: 0 !important;
+    transform: translate(0, 100%) !important;
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 30px 30px 0 0 !important;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    padding: 40px 20px 60px 20px !important;
+  }
+  /* When the page/modal is active, slide up */
+  .page:not(.hide) .auth-card {
+    transform: translate(0, 0) !important;
+  }
+
+  /* 6. STICKY BOTTOM CTA */
+  .mobile-sticky-cta {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #00e5ff, #0088ff);
+    color: #000;
+    text-align: center;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+    z-index: 9000; /* Below modals */
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .mobile-sticky-cta:active {
+    transform: scale(0.95);
+  }
+  
+  /* Ensure main content doesn't get hidden behind sticky CTA */
+  main {
+    padding-bottom: 100px;
+  }
+  
+  /* Form inputs touch targets */
+  input, select, button {
+    min-height: 44px;
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* ---------- MOBILE TYPOGRAPHY & SPACING FIXES ---------- */
+  h1 { 
+    font-size: 24px !important; 
+    line-height: 1.3 !important; 
+    margin-bottom: 16px !important; 
+  }
+  h2 { 
+    font-size: 20px !important; 
+    line-height: 1.3 !important; 
+    margin-bottom: 16px !important; 
+  }
+  h3 {
+    font-size: 18px !important;
+    margin-bottom: 12px !important;
+  }
+  p, li, .explore-content ul li { 
+    font-size: 14px !important; 
+    line-height: 1.6 !important; 
+  }
+
+  /* Force grids into clean vertical stacks on mobile, removing inconsistent gaps */
+  .explore-grid, .portal-cards, .roadmap-grid, .doc-grid, .mock-stats {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+  
+  .explore-box, .portal-card, .q-box, .roadmap-box {
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* =========================================================
+   MOBILE UX POLISH & CRITICAL BUG FIXES
+========================================================= */
+@media screen and (max-width: 768px) {
+  
+  /* 1 & 2. NAVBAR & HAMBURGER FIXES */
+  .topbar {
+    position: sticky !important;
+    top: 0;
+    height: 56px !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: rgba(19, 25, 33, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 3000 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+  }
+
+  .hamburger-menu {
+    width: 44px !important;  /* Touch Target */
+    height: 44px !important; /* Touch Target */
+    padding: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 5px !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .hamburger-menu span {
+    width: 24px !important; /* Visual Icon Size */
+    height: 2px !important;
+    background: #fff !important;
+    border-radius: 2px !important;
+  }
+
+  /* 3. REMOVE START JOURNEY CTA */
+  .mobile-sticky-cta {
+    display: none !important;
+  }
+
+  /* 4, 5, 8, 9. WHITE SCREEN BUG & INSTANT VISIBILITY */
+  /* Remove all delayed animations and forced opacity:0 */
+  .page, .explore-box, .portal-card, .q-box, .mock-hero, .roadmap-box, .doc-grid div, .portal-cards div {
+    opacity: 1 !important;
+    transform: none !important; 
+    animation: none !important; 
+    visibility: visible !important;
+  }
+
+  /* Optional very soft fade that doesn't block layout or wait for JS */
+  .page:not(.hide) {
+    animation: instantFade 0.2s ease-out forwards !important;
+  }
+  
+  @keyframes instantFade {
+    from { opacity: 0.9; }
+    to { opacity: 1; }
+  }
+
+  /* 6. SPACING FIX (TOP AREA) */
+  #mainContent {
+    padding-top: 24px !important; /* Removed massive 96px gap */
+  }
+  
+  .hide {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   CRITICAL RENDERING FIX & FULL-FEATURE MENU (v3)
+========================================================= */
+
+/* Fix White Screen globally - disable massive page slide from bottom */
+.page {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Add micro animations to cards instead */
+.explore-box, .portal-card, .doc-grid div, .roadmap-box {
+  animation: microFadeUp 0.4s ease-out forwards;
+}
+
+@keyframes microFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 768px) {
+  /* Sidebar Upgrade */
+  .mobile-sidebar {
+    width: 80% !important;
+    max-width: 320px !important;
+    background: rgba(15, 23, 42, 0.98) !important; /* Dark glass */
+  }
+
+  .sidebar-section-title {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 10px !important;
+    font-weight: 800;
+  }
+
+  .sidebar-links a.sub-link {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 10px;
+    color: #cbd5e1;
+  }
+  
+  .sidebar-links a.sub-link:hover {
+    color: #ff9900;
+  }
+
+  .sidebar-login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #00e5ff, #0088ff);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+  }
+  
+  .sidebar-login-btn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* =========================================================
+   COMPOSITOR CRASH FIX (v4 - Final Render Stabilization)
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  /* 1. Remove backdrop-filter to prevent blank screen crash */
+  .topbar {
+    background: #131921 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* 2. Force hardware acceleration on main container to prevent repaint issues */
+  #mainContent, .page {
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: auto !important;
+  }
+
+  /* 3. Strip micro-animations to guarantee instant display on slow devices */
+  .explore-box, .portal-card, .doc-grid div, .roadmap-box {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+}
+
+/* =========================================================
+   COMPOSITOR VRAM FIX (v5 - GPU Memory Overload Fix)
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  /* 1. Strip aggressive layer creation to stop GPU VRAM crash */
+  * {
+    will-change: auto !important;
+  }
+  
+  /* 2. Remove translateZ from main wrapper to flatten the DOM layer */
+  #mainContent, .page {
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  /* 3. Fix the dark strip on the left side (Sidebar protrusion) */
+  .mobile-sidebar {
+    left: -100% !important;
+  }
+  .mobile-sidebar.open {
+    left: 0 !important;
+  }
+}
+
+/* =========================================================
+   SHADOW BLEED FIX (v6 - Clean Visual Edge)
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  /* Hide the sidebar completely when closed to prevent shadow bleed */
+  .mobile-sidebar:not(.open) {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
+  }
+}

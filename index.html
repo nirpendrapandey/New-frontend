@@ -31,7 +31,8 @@
   <link rel="icon" type="image/png" href="./favicon.png" />
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="./css/Style.css?v=5">
+  <link rel="stylesheet" href="./css/Style.css?v=8">
+  <link rel="stylesheet" href="./css/roadmap.css">
   <script src="./js/app.js?v=5"></script>
 
   <!-- OneSignal -->
@@ -118,6 +119,12 @@
 <!-- TOP BAR -->
 <header class="topbar">
 
+  <button class="hamburger-menu" onclick="toggleSidebar()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <div class="site-logo">
     <img src="./favicon.png" alt="SarkariNext Logo" />
     <span class="logoText">
@@ -135,13 +142,43 @@
 
 </header>
 
+<!-- MOBILE SIDEBAR -->
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav id="mobileSidebar" class="mobile-sidebar">
+  <div class="sidebar-header">
+    <div class="site-logo">
+      <span class="logoText">Sarkari<span class="logoNext">Next</span></span>
+    </div>
+    <button class="close-sidebar" onclick="toggleSidebar()">✕</button>
+  </div>
+  <ul class="sidebar-links">
+    <li><a href="#" onclick="openPage('home'); toggleSidebar(); return false;">🏠 Home</a></li>
+    <li><a href="#" onclick="openPage('masterCinematicRoadmap'); switchRoadmap('upPolice'); toggleSidebar(); return false;">🗺️ Roadmaps</a></li>
+    
+    <li class="sidebar-section-title">📚 Exams</li>
+    <li><a href="#" onclick="openPage('masterCinematicRoadmap'); switchRoadmap('ssc'); toggleSidebar(); return false;" class="sub-link">▸ SSC</a></li>
+    <li><a href="#" onclick="openPage('masterCinematicRoadmap'); switchRoadmap('railway'); toggleSidebar(); return false;" class="sub-link">▸ Railway</a></li>
+    <li><a href="#" onclick="openPage('masterCinematicRoadmap'); switchRoadmap('banking'); toggleSidebar(); return false;" class="sub-link">▸ Banking</a></li>
+    <li><a href="#" onclick="openPage('masterCinematicRoadmap'); switchRoadmap('teaching'); toggleSidebar(); return false;" class="sub-link">▸ Teaching</a></li>
+    <li><a href="#" onclick="openPage('masterCinematicRoadmap'); switchRoadmap('defence'); toggleSidebar(); return false;" class="sub-link">▸ Defence</a></li>
+    
+    <li class="sidebar-section-title">ℹ️ Information</li>
+    <li><a href="#" onclick="toggleSidebar(); return false;">About Us</a></li>
+    <li><a href="#" onclick="toggleSidebar(); return false;">Contact</a></li>
+    
+    <li style="margin-top: 30px;">
+      <button class="sidebar-login-btn" onclick="openPage('authPage'); toggleSidebar(); return false;">Login / Signup</button>
+    </li>
+  </ul>
+</nav>
+
 <!-- MAIN -->
 <main id="mainContent">
 
   <!-- HOME -->
   <section id="home" class="page home-pro">
 
-    <div class="home-explore">
+    <div class="home-explore container section">
 
       <h2>Explore Major Government Exams</h2>
       <p class="explore-sub">
@@ -254,7 +291,7 @@
     </div>
 
   <!-- EXAM FINDER -->
-    <div class="exam-finder">
+    <div class="exam-finder container section">
 
       <h2>Find Government Exams You Are Eligible For</h2>
       <p class="finder-sub">
@@ -293,7 +330,7 @@
     </div>
 
     <!-- FREE PLAYLIST HUB -->
-    <div class="exam-finder playlist-hub">
+    <div class="exam-finder playlist-hub container section">
 
       <h2>🎥 Free Government Exam Study Hub</h2>
       <p class="finder-sub">
@@ -331,7 +368,7 @@
     </div>
 
 <!-- EXAM PATH BUILDER -->
-    <div class="exam-finder playlist-hub">
+    <div class="exam-finder playlist-hub container section">
 
       <h2>Exam Path Builder – Your Personal Preparation System</h2>
       <p class="finder-sub">
@@ -376,7 +413,7 @@
     </div>
 
 <!-- MAIN PORTAL BUTTONS -->
-    <div class="portal-cards">
+    <div class="portal-cards container section">
 
       <a href="./latest_job.html" class="portal-card">
         <h3>Latest Jobs</h3>
@@ -477,12 +514,12 @@
       <p>Har exam ka complete selection journey – start se joining tak.</p>
 
       <div class="roadmap-grid">
-        <div onclick="openPage('upPoliceRoadmap')"> UP Police Roadmap</div>
-        <div onclick="openPage('sscRoadmap')"> SSC Roadmap</div>
-        <div onclick="openPage('railwayRoadmap')"> Railway Roadmap</div>
-        <div onclick="openPage('bankingRoadmap')"> Banking Roadmap</div>
-        <div onclick="openPage('teachingRoadmap')"> Teaching Roadmap</div>
-        <div onclick="openPage('defenceRoadmap')"> Defence Roadmap</div>
+        <div onclick="openPage('masterCinematicRoadmap'); switchRoadmap('upPolice');">👮 UP Police Roadmap</div>
+        <div onclick="openPage('masterCinematicRoadmap'); switchRoadmap('ssc');"> SSC Roadmap</div>
+        <div onclick="openPage('masterCinematicRoadmap'); switchRoadmap('railway');"> Railway Roadmap</div>
+        <div onclick="openPage('masterCinematicRoadmap'); switchRoadmap('banking');"> Banking Roadmap</div>
+        <div onclick="openPage('masterCinematicRoadmap'); switchRoadmap('teaching');"> Teaching Roadmap</div>
+        <div onclick="openPage('masterCinematicRoadmap'); switchRoadmap('defence');"> Defence Roadmap</div>
       </div>
 
       <div class="portal-card" onclick="window.location.href='prepare.html'">
@@ -524,119 +561,62 @@
 
 <!-- ROADMAP PAGES -->
 
-  <section id="upPoliceRoadmap" class="page hide">
-    <h1>UP Police Constable – Selection Roadmap</h1>
-    <p>Start se joining tak complete journey.</p>
-    <ol class="roadmap-steps">
-      <li>Eligibility + Physical standards</li>
-      <li>Syllabus & exam pattern</li>
-      <li>Daily preparation strategy</li>
-      <li>Online form filling</li>
-      <li>Admit card & written exam</li>
-      <li>Answer key & result</li>
-      <li>Physical test</li>
-      <li>Medical test</li>
-      <li>Document verification</li>
-      <li>Final merit & training</li>
-    </ol>
-    <div class="student-note">Tip: Written + physical dono equally important.</div>
-    <button class="back-btn" onclick="goBack()">← Back</button>
+  <section id="masterCinematicRoadmap" class="page hide">
+    <div class="cinematic-roadmap-wrapper theme-ssc">
+      <div id="roadmapProgressBar" class="roadmap-progress-bar"></div>
+      
+      <div class="roadmap-header" style="text-align: center; margin-bottom: 30px; position: relative; z-index: 10;">
+        <h1 id="roadmapHeaderTitle" style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; color: #fff;">UP Police Mission</h1>
+        <p style="color: var(--theme-main); font-weight: 600;">Start se joining tak complete journey.</p>
+        <button class="back-btn" onclick="goBack()" style="margin-top: 20px; background: rgba(255,255,255,0.1); border: 1px solid var(--theme-main); color: #fff;">Return to Base</button>
+      </div>
+
+      <!-- PREMIUM EXAM TABS -->
+      <div class="roadmap-tabs-container">
+        <button class="roadmap-tab active" data-exam="upPolice" onclick="switchRoadmap('upPolice')">UP Police</button>
+        <button class="roadmap-tab" data-exam="ssc" onclick="switchRoadmap('ssc')">SSC</button>
+        <button class="roadmap-tab" data-exam="railway" onclick="switchRoadmap('railway')">Railway</button>
+        <button class="roadmap-tab" data-exam="banking" onclick="switchRoadmap('banking')">Banking</button>
+        <button class="roadmap-tab" data-exam="teaching" onclick="switchRoadmap('teaching')">Teaching</button>
+        <button class="roadmap-tab" data-exam="defence" onclick="switchRoadmap('defence')">Defence</button>
+      </div>
+
+      <svg class="roadmap-svg-canvas" id="roadmapSvg" preserveAspectRatio="none">
+        <g id="roadmapPathLayer"></g>
+      </svg>
+      
+      <div class="mission-container" id="missionContainer">
+        <!-- Nodes injected by roadmap.js -->
+      </div>
+      
+      <div class="floating-tip">
+        <span style="font-size: 1.5rem;">⚠️</span> Written + physical dono equally important!
+      </div>
+      
+      <!-- NODE MODAL OVERLAY -->
+      <div id="rmModalOverlay" class="roadmap-modal-overlay hide" onclick="if(event.target===this) closeNodeModal()">
+        <div id="rmModalContent" class="roadmap-modal-content">
+          <button class="rm-modal-close" onclick="closeNodeModal()">✕</button>
+          <div class="rm-modal-body">
+            <h2 id="rmModalTitle">Node Title</h2>
+            <ul id="rmModalPoints" class="rm-modal-points">
+              <!-- Injected points -->
+            </ul>
+            <div id="rmModalTip" class="rm-modal-tip">
+              Tip content here
+            </div>
+            <div class="rm-modal-footer">
+              <button id="rmModalPrevBtn" class="rm-modal-nav-btn" onclick="swapModalContent(currentModalIndex - 1)" style="display:none;">← Prev</button>
+              <a href="#" onclick="openPage('prepare'); closeNodeModal(); return false;" class="rm-modal-cta">Start Prep</a>
+              <button id="rmModalNextBtn" class="rm-modal-nav-btn">Next →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="sscRoadmap" class="page hide">
-    <h1>SSC Exams – Complete Roadmap</h1>
-    <p>CGL, CHSL, GD, MTS, Steno.</p>
-    <ol class="roadmap-steps">
-      <li>Eligibility & post selection</li>
-      <li>Exam pattern understanding</li>
-      <li>Syllabus + daily routine</li>
-      <li>Online application</li>
-      <li>Tier-1 exam → result</li>
-      <li>Tier-2 / skill / descriptive</li>
-      <li>Document verification</li>
-      <li>Final merit list</li>
-      <li>Department allotment</li>
-      <li>Joining</li>
-    </ol>
-    <div class="student-note">Tip: Daily mock + analysis = selection key.</div>
-    <button class="back-btn" onclick="goBack()">← Back</button>
-  </section>
 
-  <section id="railwayRoadmap" class="page hide">
-    <h1>Railway Exams – Roadmap</h1>
-    <p>Group D, NTPC, ALP, Technician.</p>
-    <ol class="roadmap-steps">
-      <li>Notification & eligibility</li>
-      <li>Syllabus & CBT planning</li>
-      <li>Application form</li>
-      <li>CBT-1 exam</li>
-      <li>CBT-2 / skill test</li>
-      <li>Physical test (if any)</li>
-      <li>Document verification</li>
-      <li>Medical test</li>
-      <li>Final panel</li>
-      <li>Zone joining</li>
-    </ol>
-    <div class="student-note">Tip: Speed + accuracy game changer.</div>
-    <button class="back-btn" onclick="goBack()">← Back</button>
-  </section>
-
-  <section id="bankingRoadmap" class="page hide">
-    <h1>Banking Exams – Roadmap</h1>
-    <p>SBI, IBPS, RRB PO & Clerk.</p>
-    <ol class="roadmap-steps">
-      <li>Graduation eligibility</li>
-      <li>Prelims + Mains understanding</li>
-      <li>Daily sectional practice</li>
-      <li>Application form</li>
-      <li>Prelims exam</li>
-      <li>Mains exam</li>
-      <li>Interview / language test</li>
-      <li>Document verification</li>
-      <li>Final merit</li>
-      <li>Bank joining</li>
-    </ol>
-    <div class="student-note">Tip: Mock + time management mandatory.</div>
-    <button class="back-btn" onclick="goBack()"> Back</button>
-  </section>
-
-  <section id="teachingRoadmap" class="page hide">
-    <h1>Teaching Exams – Roadmap</h1>
-    <p>CTET, UPTET, Super TET, KVS, DSSSB.</p>
-    <ol class="roadmap-steps">
-      <li>D.El.Ed / B.Ed eligibility</li>
-      <li>Syllabus & pedagogy</li>
-      <li>NCERT mastery</li>
-      <li>Online form</li>
-      <li>Written exam</li>
-      <li>Answer key</li>
-      <li>Result</li>
-      <li>Merit list</li>
-      <li>Counselling</li>
-      <li>School joining</li>
-    </ol>
-    <div class="student-note"> Tip: Pedagogy + NCERT strongest weapon.</div>
-    <button class="back-btn" onclick="goBack()"> Back</button>
-  </section>
-
-  <section id="defenceRoadmap" class="page hide">
-    <h1>Defence Exams – Roadmap</h1>
-    <p>NDA, CDS, AFCAT, Agniveer.</p>
-    <ol class="roadmap-steps">
-      <li>Eligibility & physical standards</li>
-      <li>Written exam prep</li>
-      <li>Online registration</li>
-      <li>Written exam</li>
-      <li>Result</li>
-      <li>SSB interview</li>
-      <li>Medical test</li>
-      <li>Merit list</li>
-      <li>Academy allotment</li>
-      <li>Training start</li>
-    </ol>
-    <div class="student-note">Tip: Discipline + fitness + personality.</div>
-    <button class="back-btn" onclick="goBack()">← Back</button>
-  </section>
 
 <!-- =================== AUTH PAGE =================== -->
   <section id="authPage" class="page hide">
@@ -745,8 +725,12 @@
 <script src="./js/auth.js"></script>
 <script src="./js/dashboard.js"></script>
 <script src="./js/tracker.js"></script>
+<script src="./js/roadmap.js"></script>
 
 <!-- Main JS -->
+<!-- MOBILE STICKY CTA -->
+<a href="./prepare.html" class="mobile-sticky-cta">Start Journey 🚀</a>
+
 <script src="./js/main.js"></script>
 
 <!-- SarkariNext AI Widget -->
