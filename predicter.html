@@ -6,6 +6,7 @@
   <title>Rank Predictor – nripendra.online</title>
 
   <link rel="stylesheet" href="./css/predicter.css" />
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
 </head>
 
 <body>
@@ -62,6 +63,7 @@
             <optgroup label="SSC">
               <option value="ssc_gd">SSC GD</option>
               <option value="ssc_cgl">SSC CGL</option>
+              <option value="ssc_cgl_pro" class="pro-option">SSC CGL Pro (₹11)</option>
               <option value="ssc_chsl">SSC CHSL</option>
             </optgroup>
 
@@ -97,7 +99,7 @@
           </select>
         </div>
 
-        <button class="btn full form-btn" type="submit">
+        <button class="btn full form-btn" type="button" id="startBtn">
           Start CBT Paper →
         </button>
 
@@ -109,6 +111,7 @@
 
   </main>
 
+  <script src="./js/auth.js"></script>
   <script src="./js/pridicter.js"></script>
 </body>
 </html>

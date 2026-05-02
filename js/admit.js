@@ -2,63 +2,134 @@
  //  ADMIT CARD 
 
 const data = [
-  // --- UTTAR PRADESH (UP) UPDATES ---
-  {title:"UP Police Constable Admit Card 2026", date:"Released: Feb 2026", link:"https://uppbpb.gov.in"},
-  {title:"UP Police SI Admit Card 2026", date:"Released: Feb 2026", link:"https://uppbpb.gov.in"},
-  {title:"UPSSSC Lekhpal Admit Card 2026", date:"Released: Feb 2026", link:"https://upsssc.gov.in"},
-  {title:"UPSSSC Junior Assistant Admit Card 2026", date:"Released: Feb 2026", link:"https://upsssc.gov.in"},
-  {title:"UP TGT PGT Exam Admit Card 2026", date:"Released: Feb 2026", link:"https://upsecondaryeducationboard.up.gov.in"},
-  {title:"UP Primary Teacher Admit Card 2026", date:"Available: Mar 2026", link:"https://basiceducation.up.gov.in"},
-  {title:"UP NHM Staff Nurse Admit Card 2026", date:"Released: Feb 2026", link:"https://upnrhm.gov.in"},
-  {title:"UP Forest Guard Admit Card 2026", date:"Released: Feb 2026", link:"https://upforest.gov.in"},
-  {title:"UP Jail Warder Admit Card 2026", date:"Available: Mar 2026", link:"https://prisons.up.gov.in"},
-  {title:"UP Polytechnic Lecturer Admit Card 2026", date:"Available: Mar 2026", link:"https://bteup.ac.in"},
 
-  //  BIHAR & MP 
-  {title:"Bihar Police Constable Admit Card 2026", date:"Released: Feb 2026", link:"https://csbc.bih.nic.in"},
-  {title:"Bihar Police SI Admit Card 2026", date:"Released: Feb 2026", link:"https://bpssc.bih.nic.in"},
-  {title:"Bihar SSC Inter Level Admit Card 2026", date:"Released: Feb 2026", link:"https://bssc.bihar.gov.in"},
-  {title:"Bihar Teacher (TRE 4.0) Admit Card 2026", date:"Available: Mar 2026", link:"https://bpsc.bih.nic.in"},
-  {title:"MP Police Constable Admit Card 2026", date:"Released: Feb 2026", link:"https://esb.mp.gov.in"},
-  {title:"MP Police SI Admit Card 2026", date:"Available: Mar 2026", link:"https://esb.mp.gov.in"},
-  {title:"MP Forest Guard Admit Card 2026", date:"Available: Mar 2026", link:"https://forest.mp.gov.in"},
-  {title:"Rajasthan Police Constable Admit Card 2026", date:"Released: Feb 2026", link:"https://police.rajasthan.gov.in"},
-  {title:"Rajasthan Patwari Admit Card 2026", date:"Available: Mar 2026", link:"https://rsmssb.rajasthan.gov.in"},
-  {title:"Haryana Police HSSC Admit Card 2026", date:"Available: Mar 2026", link:"https://hssc.gov.in"},
+  {
+    "title": "UPSC Civil Services Prelims Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://upsconline.nic.in/"
+  },
+  {
+    "title": "RRB NTPC CBT 1 Admit Card 2026",
+    "date": "Released: 03 May 2026",
+    "link": "https://rrbcdg.gov.in/"
+  },
+  {
+    "title": "SSC Selection Post Phase XIV Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://ssc.gov.in/"
+  },
+  {
+    "title": "Indian Navy Agniveer SSR Admit Card 2026",
+    "date": "Released: 01 May 2026",
+    "link": "https://joinindiannavy.gov.in/"
+  },
+  {
+    "title": "MPESB PAT (Pre Agriculture Test) Admit Card 2026",
+    "date": "Released: 01 May 2026",
+    "link": "https://esb.mp.gov.in/"
+  },
+  {
+    "title": "NEET UG Admit Card 2026",
+    "date": "Released: 26 Apr 2026",
+    "link": "https://exams.nta.ac.in/NEET/"
+  },
+  {
+    "title": "CUET UG City Intimation Slip 2026",
+    "date": "Released: 29 Apr 2026",
+    "link": "https://cuet.nta.nic.in/"
+  },
+  {
+    "title": "CUET UG Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://cuet.nta.nic.in/"
+  },
+  {
+    "title": "UP Police Constable Re-Exam Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://uppbpb.gov.in/"
+  },
+  {
+    "title": "SSC CHSL Tier 1 Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://ssc.gov.in/"
+  },
+  {
+    "title": "SBI Clerk Mains Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://sbi.co.in/web/careers"
+  },
+  {
+    "title": "IBPS PO Interview Call Letter 2026",
+    "date": "Available: May 2026",
+    "link": "https://ibps.in/"
+  },
+  {
+    "title": "BPSC TRE 3.0 Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://bpsc.bih.nic.in/"
+  },
+  {
+    "title": "UPSC NDA & NA I Admit Card 2026",
+    "date": "Released: Apr 2026",
+    "link": "https://upsconline.nic.in/"
+  },
+  {
+    "title": "UPSC CDS I Admit Card 2026",
+    "date": "Released: Apr 2026",
+    "link": "https://upsconline.nic.in/"
+  },
+  {
+    "title": "SSC CPO SI Paper 1 Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://ssc.gov.in/"
+  },
+  {
+    "title": "DSSSB Various Post Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://dsssb.delhi.gov.in/"
+  },
+  {
+    "title": "Haryana Police Constable Physical Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://hssc.gov.in/"
+  },
+  {
+    "title": "Rajasthan PTET Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://ptetvmou2026.com/"
+  },
+  {
+    "title": "UKPSC PCS Prelims Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://psc.uk.gov.in/"
+  },
+  {
+    "title": "CG Vyapam Hostel Superintendent Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://vyapam.cgstate.gov.in/"
+  },
+  {
+    "title": "MPSC State Services Prelims Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://mpsc.gov.in/"
+  },
+  {
+    "title": "OPSC ASO Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://opsc.gov.in/"
+  },
+  {
+    "title": "Indian Coast Guard Navik GD Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://joinindiancoastguard.cdac.in/"
+  },
+  {
+    "title": "RBI Assistant Mains Admit Card 2026",
+    "date": "Available: May 2026",
+    "link": "https://opportunities.rbi.org.in/"
+  }
 
-  //  OTHER STATES & DELHI 
-  {title:"Delhi DSSSB Clerk Admit Card 2026", date:"Released: Feb 2026", link:"https://dsssb.delhi.gov.in"},
-  {title:"UKSSSC Group C Admit Card 2026", date:"Available: Mar 2026", link:"https://sssc.uk.gov.in"},
-  {title:"Uttarakhand Police Admit Card 2026", date:"Available: Apr 2026", link:"https://uttarakhandpolice.uk.gov.in"},
-  {title:"Chhattisgarh Vyapam Admit Card 2026", date:"Available: Apr 2026", link:"https://vyapam.cgstate.gov.in"},
-  {title:"CG Police Constable Admit Card 2026", date:"Available: Apr 2026", link:"https://cgpolice.gov.in"},
-  {title:"Jharkhand Police Admit Card 2026", date:"Available: Apr 2026", link:"https://jssc.nic.in"},
-  {title:"Himachal Police Admit Card 2026", date:"Available: Apr 2026", link:"https://citizenportal.hppolice.gov.in"},
-  {title:"Punjab Police Admit Card 2026", date:"Available: Apr 2026", link:"https://punjabpolice.gov.in"},
-  {title:"Gujarat Police Admit Card 2026", date:"Available: Apr 2026", link:"https://police.gujarat.gov.in"},
-  {title:"Maharashtra Police Admit Card 2026", date:"Available: Apr 2026", link:"https://mahapolice.gov.in"},
 
-  //  SSC, RAILWAY & BANKING 
-  {title:"SSC GD Constable Admit Card 2026", date:"Released: Feb 2026", link:"https://ssc.gov.in"},
-  {title:"SSC CHSL Admit Card 2026", date:"Available: Mar 2026", link:"https://ssc.gov.in"},
-  {title:"SSC MTS Admit Card 2026", date:"Available: Apr 2026", link:"https://ssc.gov.in"},
-  {title:"Railway Group D Admit Card 2026", date:"Available: Apr 2026", link:"https://www.rrbcdg.gov.in"},
-  {title:"Railway NTPC CBT Admit Card 2026", date:"Available: Mar 2026", link:"https://www.rrbcdg.gov.in"},
-  {title:"IBPS Clerk Mains Admit Card 2026", date:"Available: Apr 2026", link:"https://ibps.in"},
-  {title:"SBI Clerk Admit Card 2026", date:"Available: Apr 2026", link:"https://sbi.co.in"},
-  {title:"Post Office GDS Selection List 2026", date:"Available: May 2026", link:"https://indiapostgdsonline.gov.in"},
-  {title:"Indian Army Agniveer Admit Card 2026", date:"Available: Apr 2026", link:"https://joinindianarmy.nic.in"},
-  {title:"Indian Navy SSR/MR Admit Card 2026", date:"Available: Apr 2026", link:"https://www.joinindiannavy.gov.in"},
-  {title:"Airforce Agniveer Vayu Admit Card 2026", date:"Available: Apr 2026", link:"https://agnipathvayu.cdac.in"},
-
-  //  LOCAL & SPECIAL RECRUITMENT 
-  {title:"UP Civil Court Admit Card 2026", date:"Available: Apr 2026", link:"https://allahabadhighcourt.in"},
-  {title:"UP Roadways Conductor Admit Card 2026", date:"Available: Apr 2026", link:"https://upsrtc.up.gov.in"},
-  {title:"UP Jal Nigam JE Admit Card 2026", date:"Available: Apr 2026", link:"https://upjn.org"},
-  {title:"UP Electricity JE Admit Card 2026", date:"Available: Apr 2026", link:"https://uppcl.org"},
-  {title:"UP Anganwadi Merit List/Card 2026", date:"Available: Mar 2026", link:"https://upanganwadibharti.in"},
-  {title:"UP Gram Panchayat Sahayak Card 2026", date:"Available: Apr 2026", link:"https://panchayatiraj.up.nic.in"},
-  {title:"UP Cooperative Bank Clerk Admit Card 2026", date:"Available: May 2026", link:"https://upcb.org.in"}
 ];
 
 const box = document.getElementById("admitList");

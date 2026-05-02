@@ -1,65 +1,135 @@
 
-// ANSWER KEY 
+
 
 const data = [
-  //  UTTAR PRADESH (UP) 
-  {title:"UP Police Constable Final Answer Key 2026", date:"Released: Feb 2026", link:"https://uppbpb.gov.in"},
-  {title:"UP Police SI Revised Answer Key 2026", date:"Released: Feb 2026", link:"https://uppbpb.gov.in"},
-  {title:"UPSSSC Lekhpal Main Answer Key 2026", date:"Released: Feb 2026", link:"https://upsssc.gov.in"},
-  {title:"UPSSSC Junior Assistant Answer Key 2026", date:"Released: Feb 2026", link:"https://upsssc.gov.in"},
-  {title:"UP TGT PGT Official Answer Key 2026", date:"Released: Feb 2026", link:"https://upsecondaryeducationboard.up.gov.in"},
-  {title:"UP Primary Teacher Answer Key 2026", date:"Expected: Mar 2026", link:"https://basiceducation.up.gov.in"},
-  {title:"UP NHM Staff Nurse Answer Key 2026", date:"Released: Feb 2026", link:"https://upnrhm.gov.in"},
-  {title:"UP Forest Guard Answer Key 2026", date:"Released: Feb 2026", link:"https://upforest.gov.in"},
-  {title:"UP Jail Warder Answer Key 2026", date:"Expected: Mar 2026", link:"https://prisons.up.gov.in"},
-  {title:"UP Polytechnic Lecturer Answer Key 2026", date:"Expected: Mar 2026", link:"https://bteup.ac.in"},
 
-  //  BIHAR & MP UPDATES 
-  {title:"Bihar Police Constable Answer Key 2026", date:"Released: Feb 2026", link:"https://csbc.bih.nic.in"},
-  {title:"Bihar Police SI Answer Key 2026", date:"Released: Feb 2026", link:"https://bpssc.bih.nic.in"},
-  {title:"Bihar SSC Inter Level Answer Key 2026", date:"Released: Feb 2026", link:"https://bssc.bihar.gov.in"},
-  {title:"Bihar Teacher (TRE 4.0) Answer Key 2026", date:"Expected: Mar 2026", link:"https://bpsc.bih.nic.in"},
-  {title:"MP Police Constable Answer Key 2026", date:"Released: Feb 2026", link:"https://esb.mp.gov.in"},
-  {title:"MP Police SI Answer Key 2026", date:"Expected: Mar 2026", link:"https://esb.mp.gov.in"},
-  {title:"MP Forest Guard Answer Key 2026", date:"Expected: Mar 2026", link:"https://forest.mp.gov.in"},
-  {title:"Rajasthan Police Constable Answer Key 2026", date:"Released: Feb 2026", link:"https://police.rajasthan.gov.in"},
-  {title:"Rajasthan Patwari Answer Key 2026", date:"Expected: Mar 2026", link:"https://rsmssb.rajasthan.gov.in"},
-  {title:"Haryana Police HSSC Answer Key 2026", date:"Expected: Mar 2026", link:"https://hssc.gov.in"},
+  {
+    "title": "UPSC NDA 1 Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://upsc.gov.in/"
+  },
+  {
+    "title": "UPSC CDS 1 Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://upsc.gov.in/"
+  },
+  {
+    "title": "UP Police Constable Re-Exam Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://uppbpb.gov.in/"
+  },
+  {
+    "title": "BPSC TRE 3.0 Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://bpsc.bih.nic.in/"
+  },
+  {
+    "title": "MPESB Constable Final Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://esb.mp.gov.in/"
+  },
+  {
+    "title": "SBI Clerk Mains Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://sbi.co.in/web/careers"
+  },
+  {
+    "title": "DSSSB Various Post Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://dsssb.delhi.gov.in/"
+  },
+  {
+    "title": "Haryana Police Constable Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://hssc.gov.in/"
+  },
+  {
+    "title": "Rajasthan PTET Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://ptetvmou2026.com/"
+  },
+  {
+    "title": "UKPSC RO/ARO Final Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://psc.uk.gov.in/"
+  },
+  {
+    "title": "MPSC State Services Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://mpsc.gov.in/"
+  },
+  {
+    "title": "OPSC ASO Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://opsc.gov.in/"
+  },
+  {
+    "title": "Indian Coast Guard Navik GD Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://joinindiancoastguard.cdac.in/"
+  },
+  {
+    "title": "UPSSSC VDO Re-Exam Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://upsssc.gov.in/"
+  },
+  {
+    "title": "RBI Assistant Mains Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://opportunities.rbi.org.in/"
+  },
+  {
+    "title": "CG Vyapam Patwari Answer Key 2026",
+    "date": "Available: May 2026",
+    "link": "https://vyapam.cgstate.gov.in/"
+  },
+  {
+    "title": "SSC CHSL Tier 2 Answer Key 2026",
+    "date": "Released: 20 Apr 2026",
+    "link": "https://ssc.gov.in/"
+  },
+  {
+    "title": "UPSSSC ANM Final Answer Key 2026",
+    "date": "Released: 16 Apr 2026",
+    "link": "https://upsssc.gov.in/"
+  },
+  {
+    "title": "CUET PG Final Answer Key 2026",
+    "date": "Released: Apr 2026",
+    "link": "https://cuet.nta.nic.in/"
+  },
+  {
+    "title": "JEE Main Session 2 Answer Key 2026",
+    "date": "Released: Apr 2026",
+    "link": "https://jeemain.nta.ac.in/"
+  },
+  {
+    "title": "SSC GD Constable Answer Key 2026",
+    "date": "Available: Apr 2026",
+    "link": "https://ssc.gov.in/"
+  },
+  {
+    "title": "IBPS SO Mains Answer Key 2026",
+    "date": "Available: Apr 2026",
+    "link": "https://ibps.in/"
+  },
+  {
+    "title": "RRB NTPC CBT 1 Answer Key 2026",
+    "date": "Released: 06 Apr 2026",
+    "link": "https://rrbcdg.gov.in/"
+  },
+  {
+    "title": "RRB Group D Answer Key 2026",
+    "date": "Released: 17 Feb 2026",
+    "link": "https://rrbcdg.gov.in/"
+  },
+  {
+    "title": "SSC CGL Tier 2 Answer Key 2026",
+    "date": "Released: 30 Jan 2026",
+    "link": "https://ssc.gov.in/"
+  }
+]
 
-  //  OTHER STATES & DELHI 
-  {title:"Delhi DSSSB Clerk Answer Key 2026", date:"Released: Feb 2026", link:"https://dsssb.delhi.gov.in"},
-  {title:"UKSSSC Group C Answer Key 2026", date:"Expected: Mar 2026", link:"https://sssc.uk.gov.in"},
-  {title:"Uttarakhand Police Answer Key 2026", date:"Expected: Apr 2026", link:"https://uttarakhandpolice.uk.gov.in"},
-  {title:"Chhattisgarh Vyapam Answer Key 2026", date:"Expected: Apr 2026", link:"https://vyapam.cgstate.gov.in"},
-  {title:"CG Police Constable Answer Key 2026", date:"Expected: Apr 2026", link:"https://cgpolice.gov.in"},
-  {title:"Jharkhand Police Answer Key 2026", date:"Expected: Apr 2026", link:"https://jssc.nic.in"},
-  {title:"Himachal Police Answer Key 2026", date:"Expected: Apr 2026", link:"https://citizenportal.hppolice.gov.in"},
-  {title:"Punjab Police Answer Key 2026", date:"Expected: Apr 2026", link:"https://punjabpolice.gov.in"},
-  {title:"Gujarat Police Answer Key 2026", date:"Expected: Apr 2026", link:"https://police.gujarat.gov.in"},
-  {title:"Maharashtra Police Answer Key 2026", date:"Expected: Apr 2026", link:"https://mahapolice.gov.in"},
-
-  //  SSC, RAILWAY & BANKING 
-  {title:"SSC GD Constable Answer Key 2026", date:"Released: Feb 2026", link:"https://ssc.gov.in"},
-  {title:"SSC CHSL Answer Key 2026", date:"Expected: Mar 2026", link:"https://ssc.gov.in"},
-  {title:"SSC MTS Answer Key 2026", date:"Expected: Apr 2026", link:"https://ssc.gov.in"},
-  {title:"Railway Group D Answer Key 2026", date:"Expected: Apr 2026", link:"https://www.rrbcdg.gov.in"},
-  {title:"Railway NTPC Phase-I Answer Key 2026", date:"Expected: Mar 2026", link:"https://www.rrbcdg.gov.in"},
-  {title:"IBPS Clerk Main Answer Key 2026", date:"Expected: Apr 2026", link:"https://ibps.in"},
-  {title:"SBI Clerk Answer Key 2026", date:"Expected: Apr 2026", link:"https://sbi.co.in"},
-  {title:"Post Office GDS Merit List/Key 2026", date:"Expected: May 2026", link:"https://indiapostgdsonline.gov.in"},
-  {title:"Indian Army Agniveer CEE Answer Key 2026", date:"Expected: Apr 2026", link:"https://joinindianarmy.nic.in"},
-  {title:"Indian Navy SSR/MR Answer Key 2026", date:"Expected: Apr 2026", link:"https://www.joinindiannavy.gov.in"},
-  {title:"Airforce Agniveer Vayu Answer Key 2026", date:"Expected: Apr 2026", link:"https://agnipathvayu.cdac.in"},
-
-  //  LOCAL & SPECIAL RECRUITMENT 
-  {title:"UP Civil Court Staff Answer Key 2026", date:"Expected: Apr 2026", link:"https://allahabadhighcourt.in"},
-  {title:"UP Roadways Conductor Answer Key 2026", date:"Expected: Apr 2026", link:"https://upsrtc.up.gov.in"},
-  {title:"UP Jal Nigam JE Answer Key 2026", date:"Expected: Apr 2026", link:"https://upjn.org"},
-  {title:"UP Electricity JE/AE Answer Key 2026", date:"Expected: Apr 2026", link:"https://uppcl.org"},
-  {title:"UP Anganwadi Bharti Status 2026", date:"Updated: Mar 2026", link:"https://upanganwadibharti.in"},
-  {title:"UP Gram Panchayat Sahayak Key 2026", date:"Expected: Apr 2026", link:"https://panchayatiraj.up.nic.in"},
-  {title:"UP Cooperative Bank Clerk Answer Key 2026", date:"Expected: May 2026", link:"https://upcb.org.in"}
-];
 
 const box = document.getElementById("answerList");
 if(box) {

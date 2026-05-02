@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Latest Jobs – SarkariNext</title>
-
-<link rel="stylesheet" href="./css/sarkaristyle.css">
-  <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Jobs - Sarkari Updates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/updates.css">
+    <link rel="icon" type="image/png" href="./favicon.png" />
 </head>
+<body class="updates-body">
 
-<body>
+    <header class="up-header">
+        <a href="index.html" class="back-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Main Home
+        </a>
+        <h1>Latest Jobs</h1>
+    </header>
 
-<header class="top-bar">
-  <a href="./index.html">Home</a>
-<a href="./answere_key.html">Answere Key</a>
-<a href="./result.html">Result</a>
-<a href="./result.html">Result</a>
-</header>
+    <div class="up-container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> > <span>Latest Jobs</span>
+        </div>
+        
+        <h1 class="up-page-title">Latest Government Jobs</h1>
+        
+        <div id="jobList" class="up-grid">
+            <!-- Rendered via job.js -->
+        </div>
+    </div>
 
-<section class="detail-wrap">
-
-  <div class="detail-head">
-    <h1>SarkariNext</h1>
-    <p>Latest Jobs • Result • Admit Card • Answer Key</p>
-  </div>
-
-  <div class="detail-box">
-    <h2>Latest Jobs (2026)</h2>
-
-    <!-- JOB LIST -->
-    <div id="jobList" class="job-list"></div>
-  </div>
-
-</section>
-
-<script src="./js/job.js"></script>
+    <!-- Scripts -->
+    <script src="js/job.js"></script>
 </body>
 </html>

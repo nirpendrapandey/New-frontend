@@ -307,9 +307,11 @@ select option{
 }
 
 /* For better highlight on hover/selected (supported browsers) */
-select option:checked{
-  background: #ff9900;
-  color: #111;
+
+/* Pro option highlight */
+.pro-option {
+  color: #ff9900 !important;
+  font-weight: 900 !important;
 }
 
 

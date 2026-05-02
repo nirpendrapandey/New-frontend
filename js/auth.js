@@ -145,7 +145,14 @@ function handleSignup(e) {
       msgEl.textContent = "Account created! Redirecting...";
       msgEl.className = "auth-msg success";
       updateAuthUI();
-      setTimeout(() => openPage("dashboardPage"), 800);
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirect = urlParams.get("redirect");
+      
+      setTimeout(() => {
+        if (redirect) window.location.href = redirect;
+        else if (typeof openPage === "function") openPage("dashboardPage");
+      }, 800);
     } else {
       msgEl.textContent = res.message;
       msgEl.className = "auth-msg error";
@@ -173,7 +180,14 @@ function handleLogin(e) {
       msgEl.textContent = "Success! Redirecting...";
       msgEl.className = "auth-msg success";
       updateAuthUI();
-      setTimeout(() => openPage("dashboardPage"), 800);
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirect = urlParams.get("redirect");
+      
+      setTimeout(() => {
+        if (redirect) window.location.href = redirect;
+        else if (typeof openPage === "function") openPage("dashboardPage");
+      }, 800);
     } else {
       msgEl.textContent = res.message;
       msgEl.className = "auth-msg error";
@@ -203,4 +217,12 @@ function showAuthTab(tab) {
 // Initialize auth UI on page load
 document.addEventListener("DOMContentLoaded", () => {
   updateAuthUI();
+
+  // Check for auth trigger in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const authMode = urlParams.get("auth");
+  if (authMode === "login" || authMode === "signup") {
+     if (typeof openPage === "function") openPage("authPage");
+     showAuthTab(authMode);
+  }
 });
